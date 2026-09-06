@@ -144,20 +144,9 @@
   if (!showcase) return;
   var showcaseSection = showcase.closest('.paper-band-showcase') || showcase;
 
-  // Match Magic UI's Marquee repeat behavior: four identical moving rows.
   var viewport = showcase.querySelector('.showcase-marquee-viewport');
   var track = viewport && viewport.querySelector('.showcase-marquee-track');
   if (!viewport || !track) return;
-
-  Array(3).fill(0).forEach(function() {
-    var clone = track.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.dataset.marqueeClone = 'true';
-    clone.querySelectorAll('button').forEach(function(button) {
-      button.tabIndex = -1;
-    });
-    viewport.appendChild(clone);
-  });
 
   var player = showcaseSection.querySelector('[data-showcase-player]');
   var playerFrame = player && player.querySelector('.showcase-player-frame');
@@ -224,17 +213,22 @@
     if (nativeFullscreen && !document.fullscreenElement) closePlayer();
   });
 
-  var wheelTimer;
-  showcaseSection.querySelector('.showcase-marquee-viewport').addEventListener('wheel', function(event) {
-    var delta = Math.max(Math.abs(event.deltaX), Math.abs(event.deltaY));
+  viewport.addEventListener('wheel', function(event) {
+    var delta = event.deltaX || event.deltaY;
     if (!delta) return;
-    var boostedDuration = Math.max(10, 42 - Math.min(delta, 220) * 0.14);
-    viewport.style.setProperty('--showcase-marquee-duration', boostedDuration + 's');
-    clearTimeout(wheelTimer);
-    wheelTimer = setTimeout(function() {
-      viewport.style.removeProperty('--showcase-marquee-duration');
-    }, 500);
-  }, {passive: true});
+
+    var maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+    var nextScroll = Math.max(0, Math.min(maxScroll, viewport.scrollLeft + delta * 1.8));
+    var movingForward = delta > 0;
+    var canMoveHorizontally = movingForward
+      ? viewport.scrollLeft < maxScroll - 1
+      : viewport.scrollLeft > 1;
+
+    if (canMoveHorizontally) {
+      event.preventDefault();
+      viewport.scrollLeft = nextScroll;
+    }
+  }, {passive: false});
 })();
 
 //* ======================== Video Control ===================== */

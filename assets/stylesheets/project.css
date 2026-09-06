@@ -614,13 +614,18 @@ div.container.blog.project-figure-narrow > p.caption {
 
 .showcase-marquee-viewport {
   --gap: 0.6rem;
-  --showcase-marquee-duration: 42s;
   display: flex;
   gap: var(--gap);
   margin: 0 -1rem;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 0.5rem;
   position: relative;
+  scrollbar-width: none;
+}
+
+.showcase-marquee-viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .showcase-marquee-viewport::before,
@@ -645,7 +650,7 @@ div.container.blog.project-figure-narrow > p.caption {
 }
 
 .showcase-marquee-track {
-  animation: showcase-marquee var(--showcase-marquee-duration) linear infinite;
+  animation: none;
   display: flex;
   flex: 0 0 auto;
   gap: var(--gap);
@@ -1981,13 +1986,12 @@ a.resource-link:focus-visible .resource-arrow i {
 
   .showcase-marquee-viewport {
     --gap: 0.45rem;
-    --showcase-marquee-duration: 32s;
     margin-left: -0.4rem;
     margin-right: -0.4rem;
   }
 
   .showcase-marquee-track {
-    animation-duration: var(--showcase-marquee-duration);
+    animation: none;
   }
 
   .showcase-marquee-track-static {
