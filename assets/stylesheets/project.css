@@ -613,7 +613,8 @@ div.container.blog.project-figure-narrow > p.caption {
 }
 
 .showcase-marquee-viewport {
-  --gap: 1rem;
+  --gap: 0.6rem;
+  --showcase-marquee-duration: 42s;
   display: flex;
   gap: var(--gap);
   margin: 0 -1rem;
@@ -644,7 +645,7 @@ div.container.blog.project-figure-narrow > p.caption {
 }
 
 .showcase-marquee-track {
-  animation: showcase-marquee 90s linear infinite;
+  animation: showcase-marquee var(--showcase-marquee-duration) linear infinite;
   display: flex;
   flex: 0 0 auto;
   gap: var(--gap);
@@ -1979,12 +1980,14 @@ a.resource-link:focus-visible .resource-arrow i {
   }
 
   .showcase-marquee-viewport {
+    --gap: 0.45rem;
+    --showcase-marquee-duration: 32s;
     margin-left: -0.4rem;
     margin-right: -0.4rem;
   }
 
   .showcase-marquee-track {
-    animation-duration: 52s;
+    animation-duration: var(--showcase-marquee-duration);
   }
 
   .showcase-marquee-track-static {

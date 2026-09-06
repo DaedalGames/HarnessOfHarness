@@ -142,6 +142,7 @@
 (function setupProjectShowcase() {
   var showcase = document.querySelector('.project-showcase');
   if (!showcase) return;
+  var showcaseSection = showcase.closest('.paper-band-showcase') || showcase;
 
   // Match Magic UI's Marquee repeat behavior: four identical moving rows.
   var viewport = showcase.querySelector('.showcase-marquee-viewport');
@@ -158,7 +159,7 @@
     viewport.appendChild(clone);
   });
 
-  var player = showcase.querySelector('[data-showcase-player]');
+  var player = showcaseSection.querySelector('[data-showcase-player]');
   var playerFrame = player && player.querySelector('.showcase-player-frame');
   var playerVideo = player && player.querySelector('[data-showcase-player-video]');
   var playerLoading = player && player.querySelector('[data-showcase-player-loading]');
@@ -205,7 +206,7 @@
     playerVideo.play().catch(function() {});
   }
 
-  showcase.addEventListener('click', function(event) {
+  showcaseSection.addEventListener('click', function(event) {
     var closeButton = event.target.closest('[data-showcase-player-close]');
     if (closeButton) {
       closePlayer();
@@ -222,6 +223,18 @@
   document.addEventListener('fullscreenchange', function() {
     if (nativeFullscreen && !document.fullscreenElement) closePlayer();
   });
+
+  var wheelTimer;
+  showcaseSection.querySelector('.showcase-marquee-viewport').addEventListener('wheel', function(event) {
+    var delta = Math.max(Math.abs(event.deltaX), Math.abs(event.deltaY));
+    if (!delta) return;
+    var boostedDuration = Math.max(10, 42 - Math.min(delta, 220) * 0.14);
+    viewport.style.setProperty('--showcase-marquee-duration', boostedDuration + 's');
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(function() {
+      viewport.style.removeProperty('--showcase-marquee-duration');
+    }, 500);
+  }, {passive: true});
 })();
 
 //* ======================== Video Control ===================== */
