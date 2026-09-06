@@ -23,7 +23,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/branding/hoh-mark.svg">
 
     <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/project.css?v=author-link-icon-2">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/project.css?v=showcase-1">
     <link href="assets/fontawesome-free-7.2.0-web/css/all.min.css" rel="stylesheet">
     <script src="assets/scripts/navbar.js" defer></script>
 </head>
@@ -58,6 +58,49 @@
             </div>
         </div>
     </div>
+
+    <section class="paper-band paper-band-gray paper-band-showcase" id="showcase">
+        <div class="container blog extra-large project-showcase">
+            <header class="showcase-heading">
+                <h1>Showcase</h1>
+            </header>
+
+            <div class="showcase-marquee-viewport" aria-label="Playable projects">
+                <div class="showcase-marquee-track">
+                    <button class="showcase-product-card" type="button" data-showcase-video-src="assets/video/fusepoint-real-gameplay-preview.mp4" data-showcase-video-poster="assets/figures/fusepoint-real-gameplay-poster.jpg" data-showcase-video-title="Fusepoint" aria-label="Play Fusepoint fullscreen">
+                        <span class="showcase-product-media">
+                            <img src="assets/figures/fusepoint-real-gameplay-poster.jpg" alt="Fusepoint gameplay" loading="lazy" decoding="async">
+                            <span class="showcase-product-play" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+                        </span>
+                        <span class="showcase-product-meta"><strong>Fusepoint</strong><span>Game · FPS</span></span>
+                    </button>
+
+                    <article class="showcase-product-card showcase-product-card-pending" aria-label="Mournlight video coming soon">
+                        <span class="showcase-product-media showcase-product-media-mournlight">
+                            <span class="showcase-product-monogram" aria-hidden="true">M</span>
+                        </span>
+                        <span class="showcase-product-meta"><strong>Mournlight</strong><span>Game · Roguelite</span></span>
+                    </article>
+
+                    <article class="showcase-product-card showcase-product-card-more" aria-label="More software and games are in development">
+                        <span class="showcase-product-media showcase-product-media-more">
+                            <span class="showcase-shader" aria-hidden="true"></span>
+                            <span class="showcase-shader-mark" aria-hidden="true">•••</span>
+                        </span>
+                        <span class="showcase-product-meta"><strong>More soon</strong><span>Software · Games</span></span>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <div class="showcase-fullscreen-player" data-showcase-player hidden>
+            <button class="showcase-player-close" type="button" data-showcase-player-close aria-label="Close fullscreen video"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <div class="showcase-player-frame">
+                <video controls playsinline preload="none" data-showcase-player-video></video>
+                <span class="showcase-player-loading" data-showcase-player-loading>Loading video…</span>
+            </div>
+        </div>
+    </section>
 
     <section class="paper-band paper-band-white paper-band-art-left paper-band-art-portrait paper-band-demo" id="demo">
         <img class="paper-band-art" data-src="assets/illustrations/human-relax-recliner.webp" alt="" aria-hidden="true" width="987" height="932" decoding="async">

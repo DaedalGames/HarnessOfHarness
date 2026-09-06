@@ -246,9 +246,10 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.appendChild(nav);
 
-    // Include the demo heading alongside the paper section headings so the
-    // current-section indicator remains accurate while the demo is in view.
-    const h1Elements = Array.from(document.querySelectorAll('.demo-heading h1, .container.blog.main h1'));
+    // Include the showcase and demo headings alongside the paper section
+    // headings so the current-section indicator remains accurate while media
+    // sections are in view.
+    const h1Elements = Array.from(document.querySelectorAll('.project-showcase h1, .demo-heading h1, .container.blog.main h1'));
     const navList = nav.querySelector('.nav-list');
     
     function resetNavbarState() {

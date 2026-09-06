@@ -138,6 +138,92 @@
   });
 })();
 
+//* ======================== Project Showcase ===================== */
+(function setupProjectShowcase() {
+  var showcase = document.querySelector('.project-showcase');
+  if (!showcase) return;
+
+  // Match Magic UI's Marquee repeat behavior: four identical moving rows.
+  var viewport = showcase.querySelector('.showcase-marquee-viewport');
+  var track = viewport && viewport.querySelector('.showcase-marquee-track');
+  if (!viewport || !track) return;
+
+  Array(3).fill(0).forEach(function() {
+    var clone = track.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    clone.dataset.marqueeClone = 'true';
+    clone.querySelectorAll('button').forEach(function(button) {
+      button.tabIndex = -1;
+    });
+    viewport.appendChild(clone);
+  });
+
+  var player = showcase.querySelector('[data-showcase-player]');
+  var playerFrame = player && player.querySelector('.showcase-player-frame');
+  var playerVideo = player && player.querySelector('[data-showcase-player-video]');
+  var playerLoading = player && player.querySelector('[data-showcase-player-loading]');
+  var nativeFullscreen = false;
+
+  function closePlayer() {
+    if (!player || !playerVideo) return;
+    nativeFullscreen = false;
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(function() {});
+    }
+    playerVideo.pause();
+    playerVideo.removeAttribute('src');
+    playerVideo.load();
+    player.hidden = true;
+    document.body.classList.remove('showcase-player-open');
+  }
+
+  function openPlayer(card) {
+    if (!player || !playerFrame || !playerVideo) return;
+    var sourceUrl = card.dataset.showcaseVideoSrc;
+    if (!sourceUrl) return;
+
+    playerVideo.poster = card.dataset.showcaseVideoPoster || '';
+    playerVideo.setAttribute('aria-label', card.dataset.showcaseVideoTitle || 'Showcase video');
+    playerVideo.src = sourceUrl;
+    playerVideo.load();
+    player.hidden = false;
+    document.body.classList.add('showcase-player-open');
+    if (playerLoading) playerLoading.hidden = false;
+
+    playerVideo.addEventListener('canplay', function() {
+      if (playerLoading) playerLoading.hidden = true;
+    }, {once: true});
+
+    if (playerFrame.requestFullscreen) {
+      playerFrame.requestFullscreen().then(function() {
+        nativeFullscreen = true;
+      }).catch(function() {});
+    } else if (playerVideo.webkitEnterFullscreen) {
+      playerVideo.webkitEnterFullscreen();
+    }
+
+    playerVideo.play().catch(function() {});
+  }
+
+  showcase.addEventListener('click', function(event) {
+    var closeButton = event.target.closest('[data-showcase-player-close]');
+    if (closeButton) {
+      closePlayer();
+      return;
+    }
+    var card = event.target.closest('[data-showcase-video-src]');
+    if (card && card.tagName === 'BUTTON') openPlayer(card);
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && player && !player.hidden && !document.fullscreenElement) closePlayer();
+  });
+
+  document.addEventListener('fullscreenchange', function() {
+    if (nativeFullscreen && !document.fullscreenElement) closePlayer();
+  });
+})();
+
 //* ======================== Video Control ===================== */
 function ToggleVideo(x) {
   var videos = document.getElementsByClassName(x + '-video');
