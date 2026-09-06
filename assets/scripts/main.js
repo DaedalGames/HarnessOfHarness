@@ -148,6 +148,29 @@
   var track = viewport && viewport.querySelector('.showcase-marquee-track');
   if (!viewport || !track) return;
 
+  var originalCards = Array.prototype.slice.call(track.children);
+  var cloneFragment = document.createDocumentFragment();
+  originalCards.forEach(function(card) {
+    var clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    if (clone.tagName === 'BUTTON') clone.tabIndex = -1;
+    cloneFragment.appendChild(clone);
+  });
+  track.appendChild(cloneFragment);
+
+  function updateMarqueeDistance() {
+    var styles = window.getComputedStyle(track);
+    var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+    var distance = originalCards.reduce(function(total, card) {
+      return total + card.getBoundingClientRect().width;
+    }, 0) + gap * Math.max(0, originalCards.length - 1);
+    track.style.setProperty('--showcase-marquee-distance', distance + 'px');
+  }
+
+  updateMarqueeDistance();
+  window.addEventListener('resize', updateMarqueeDistance);
+  track.classList.add('is-auto-scrolling');
+
   var player = showcaseSection.querySelector('[data-showcase-player]');
   var playerFrame = player && player.querySelector('.showcase-player-frame');
   var playerVideo = player && player.querySelector('[data-showcase-player-video]');
@@ -213,22 +236,6 @@
     if (nativeFullscreen && !document.fullscreenElement) closePlayer();
   });
 
-  viewport.addEventListener('wheel', function(event) {
-    var delta = event.deltaX || event.deltaY;
-    if (!delta) return;
-
-    var maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-    var nextScroll = Math.max(0, Math.min(maxScroll, viewport.scrollLeft + delta * 1.8));
-    var movingForward = delta > 0;
-    var canMoveHorizontally = movingForward
-      ? viewport.scrollLeft < maxScroll - 1
-      : viewport.scrollLeft > 1;
-
-    if (canMoveHorizontally) {
-      event.preventDefault();
-      viewport.scrollLeft = nextScroll;
-    }
-  }, {passive: false});
 })();
 
 //* ======================== Video Control ===================== */
