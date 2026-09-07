@@ -1019,6 +1019,30 @@ div.container.blog.project-figure-narrow > p.caption {
   justify-content: center;
 }
 
+.showcase-product-media-mournlight > img {
+  inset: 0;
+  position: absolute;
+}
+
+.showcase-product-image-primary {
+  animation: showcase-mournlight-primary 12s ease-in-out infinite;
+}
+
+.showcase-product-image-secondary {
+  animation: showcase-mournlight-secondary 12s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes showcase-mournlight-primary {
+  0%, 38%, 100% { opacity: 1; }
+  50%, 88% { opacity: 0; }
+}
+
+@keyframes showcase-mournlight-secondary {
+  0%, 38%, 100% { opacity: 0; }
+  50%, 88% { opacity: 1; }
+}
+
 .showcase-product-monogram {
   color: rgba(250, 247, 242, 0.86);
   font-family: "Poppins", sans-serif;
@@ -2311,6 +2335,15 @@ a.resource-link:focus-visible .resource-arrow i {
 
   .showcase-panel.is-active {
     animation: none;
+  }
+
+  .showcase-product-image-primary {
+    animation: none;
+  }
+
+  .showcase-product-image-secondary {
+    animation: none;
+    display: none;
   }
 
   .demo-switch-marker,
