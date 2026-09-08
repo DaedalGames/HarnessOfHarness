@@ -76,10 +76,10 @@ We will continue adding games and demos across different genres. For each projec
 <table>
   <tr>
     <td align="center">
-      <img src="assets/figures/demos/fusepoint/gameplay-readme-01.gif" width="480" height="270" alt="Fusepoint gameplay preview">
+      <img src="assets/figures/demos/fusepoint/gameplay-readme-01.gif" width="400" height="225" alt="Fusepoint gameplay preview">
     </td>
     <td align="center">
-      <img src="assets/figures/demos/mournlight/gameplay-readme-01.gif" width="480" height="270" alt="Mournlight gameplay preview">
+      <img src="assets/figures/demos/mournlight/gameplay-readme-01.gif" width="400" height="225" alt="Mournlight gameplay preview">
     </td>
   </tr>
 </table>
