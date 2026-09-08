@@ -19,10 +19,10 @@
 ## 🗞️ News
 
 - 🎉 **Coming soon** — We will publicly release HoH-lite, a lightweight implementation of HoH's core workflow.
-- 🎉 **2026-09-06** — [Mournlight](https://github.com/Flesymeb/mournlight), a Vampire Survivors–style roguelite, has reached a playable state. [Watch demo →](https://github.com/Flesymeb/mournlight)
+- 🎉 **2026-09-06** — [Mournlight](https://github.com/Flesymeb/mournlight), a Vampire Survivors–style roguelite, has reached a playable state. [Watch demo →](https://flesymeb.github.io/HarnessOfHarness/#mournlight)
 - 🎉 **2026-09-02** — 🌐 Our [project page](https://flesymeb.github.io/HarnessOfHarness/) is now live, featuring demo videos and project resources.
 - 🎉 **2026-09-02** — 📄 Our paper, [Harness-of-Harness](https://arxiv.org/abs/2609.01481), is now available on arXiv.
-- 🎉 **2026-09-01** — [Fusepoint](https://github.com/Flesymeb/fusepoint), a single-player narrative first-person shooter, has reached 70+ loops. [Watch demo →](https://flesymeb.github.io/HarnessOfHarness/#demo)
+- 🎉 **2026-09-01** — [Fusepoint](https://github.com/Flesymeb/fusepoint), a single-player narrative first-person shooter, has reached 70+ loops. [Watch demo →](https://flesymeb.github.io/HarnessOfHarness/#fusepoint)
 
 ## Overview
 
