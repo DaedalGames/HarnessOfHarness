@@ -60,11 +60,10 @@ next iteration, allowing the system to improve loop by loop.
 ## Demos
 
 <p align="center">
-  <img src="assets/figures/demos/mournlight/gameplay-readme-01.gif" width="960" alt="Mournlight gameplay preview">
-</p>
-
-<p align="center">
-  <a href="assets/video/hoh-video-readme-preview.mp4">HoH preview video</a>
+  <video controls preload="metadata" width="960" poster="assets/figures/hoh-video-full-poster.jpg">
+    <source src="assets/video/hoh-video-readme-preview.mp4" type="video/mp4">
+    HoH preview video
+  </video>
 </p>
 
 We will continue adding games and demos across different genres. For each project, you can access the source repository and follow its development trajectory.
@@ -73,6 +72,17 @@ We will continue adding games and demos across different genres. For each projec
 | :------------- | :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: |
 | **Fusepoint**  | FPS       | [![Watch showcase](<https://img.shields.io/badge/Watch%20showcase-365F7D?style=for-the-badge&logo=googlechrome&logoColor=white>)](https://flesymeb.github.io/HarnessOfHarness/#demo) | [![Download game](<https://img.shields.io/badge/Download%20game-5F6872?style=for-the-badge&logo=itchdotio&logoColor=white>)](https://drive.google.com/drive/folders/1gch3D5HKa3n3gxM0LNrzubcJxlFFLaXy?usp=sharing) | [![Trajectory](https://img.shields.io/badge/Trajectory-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Flesymeb/fusepoint)  |
 | **Mournlight** | Roguelite |      [![Watch showcase](<https://img.shields.io/badge/Watch%20showcase-365F7D?style=for-the-badge&logo=googlechrome&logoColor=white>)](https://flesymeb.github.io/HarnessOfHarness/#showcase)       | [![Download game](<https://img.shields.io/badge/Download%20game-5F6872?style=for-the-badge&logo=itchdotio&logoColor=white>)](https://drive.google.com/drive/folders/1gch3D5HKa3n3gxM0LNrzubcJxlFFLaXy?usp=sharing) | [![Trajectory](https://img.shields.io/badge/Trajectory-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Flesymeb/mournlight) |
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/figures/demos/fusepoint/gameplay-readme-01.gif" width="480" alt="Fusepoint gameplay preview">
+    </td>
+    <td align="center">
+      <img src="assets/figures/demos/mournlight/gameplay-readme-01.gif" width="480" alt="Mournlight gameplay preview">
+    </td>
+  </tr>
+</table>
 
 ## Code
 
