@@ -50,7 +50,7 @@ stable roles:
   It remains read-only.
 
 <p align="center">
-  <img src="assets/figures/role_black.png" width="100%"
+  <img src="assets/figures/role-color.png" width="100%"
        alt="Project Planner, Developer, and QA Tester across continual development iterations">
 </p>
 
@@ -59,7 +59,13 @@ next iteration, allowing the system to improve loop by loop.
 
 ## Demos
 
-https://github.com/user-attachments/assets/78951fea-7e8a-4a73-8a16-d1ef5ca9526b
+<p align="center">
+  <img src="assets/figures/demos/mournlight/gameplay-readme-01.gif" width="960" alt="Mournlight gameplay preview">
+</p>
+
+<p align="center">
+  <a href="assets/video/hoh-video-readme-preview.mp4">HoH preview video</a>
+</p>
 
 We will continue adding games and demos across different genres. For each project, you can access the source repository and follow its development trajectory.
 
