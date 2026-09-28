@@ -104,6 +104,20 @@ development and debugging tools, reusable skills, and project integrations.
 💬 Ideas and contributions are welcome: [open an issue](https://github.com/Flesymeb/HarnessOfHarness/issues)
 or [send a pull request](https://github.com/Flesymeb/HarnessOfHarness/pulls).
 
+## 🗺️ Roadmap
+
+- [ ] **Efficiency** — lower token cost and wall-clock time per iteration,
+  via cross-iteration context compression and selective verification
+- [ ] **Web UI** — visualize and monitor multi-day runs: iteration progress,
+  agent activity, and evidence
+- [ ] **TUI console** — a lightweight terminal console for driving and
+  inspecting runs locally
+- [ ] **More harness & model adapters** — bring your own coding agent to
+  HoH-lite (e.g., Claude Code)
+- [ ] **More project types** — templates and examples beyond Godot games
+
+*… and more in flight.*
+
 ## Citation
 
 ```bibtex
